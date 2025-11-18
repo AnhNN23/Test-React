@@ -321,7 +321,7 @@ export class OpenSkyAPIService extends Service implements IOpenSkyAPIService {
     this.isFetchingStateVectors = true;
 
     var stateBounds = `?extended=1&lamin=${this.geoBounds.southernLatitude}&lomin=${this.geoBounds.westernLongitude}&lamax=${this.geoBounds.northernLatitude}&lomax=${this.geoBounds.easternLongitude}`;
-    var targetURL = `${URL}/states/all${stateBounds}`;
+    var targetURL = `https://opensky-network.org/api/states/all${stateBounds}`;
 
     this.restService.get<IStateVectorRawData>(targetURL, this.getRequestInit)
       .then(response => {
