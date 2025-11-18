@@ -13,7 +13,6 @@ export default defineConfig({
     }),
   ],
   server: {
-    port: 1911,
     proxy: {
       '/oskyapi': {
         target: 'https://opensky-network.org/api',

@@ -4,11 +4,10 @@
   "version": "1.1.0",
   "type": "module",
   "scripts": {
-    "start:proxy": "node server/opensky-token-proxy.js",
+    "start:proxy": "ts-node src/opensky/opensky-token-proxy.ts",
     "dev": "concurrently \"npm run start:proxy\" \"vite\"",
-    "build:server": "tsc -p tsconfig.node.json",
-    "build:web": "vite build",
-    "build": "npm run build:server && npm run build:web",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
     "preview": "concurrently \"npm run start:proxy\" \"vite preview\""
   },
   "dependencies": {
