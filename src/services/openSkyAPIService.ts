@@ -31,6 +31,7 @@ export interface IOpenSkyAPIService extends IService {
 
 export class OpenSkyAPIService extends Service implements IOpenSkyAPIService {
 
+
   // IOpenSkyAPIService
   public geoBounds: IMapGeoBounds;
 
@@ -290,8 +291,13 @@ export class OpenSkyAPIService extends Service implements IOpenSkyAPIService {
 
   private async fetchToken(): Promise<void> {
 
-    const response = await fetch(`/oskytokenapi?nocache=${Date.now()}`, { method: "GET" });
+    // const OSKY_API_URL = process.env.REACT_APP_OSKY_API_URL; // React CRA
 
+    const OSKY_API_URL = import.meta.env.VITE_OSKY_API_URL;
+
+    const response = await fetch(`${OSKY_API_URL}?nocache=${Date.now()}`, {
+      method: "GET",
+    });
     if (!response.ok)
       throw new Error("Proxy OAuth2 token request failed: " + response.statusText);
 

@@ -11,6 +11,7 @@ interface ImportMetaEnv {
   readonly VITE_REACT_MAPBOX_TOKEN: string;
   readonly VITE_REACT_OSKY_CLIENT_ID: string;
   readonly VITE_REACT_OSKY_CLIENT_SECRET: string;
+   readonly VITE_OSKY_API_URL: string; 
   // add other env variables here...
 }
 
